@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+	<display-name>dwr_190302</display-name>
+	
+	<!-- 使用 http://localhost:8080/dwr_190302 導向 demoJSP.jsp -->
+	<welcome-file-list>
+		<welcome-file>demoJSP.jsp</welcome-file>
+	</welcome-file-list>
+
+    <servlet>
+        <servlet-name>dwr-invoker</servlet-name>
+        <!-- 接收js的Ajax请求的servlet -->
+        <servlet-class>org.directwebremoting.servlet.DwrServlet</servlet-class>
+        <init-param>
+            <param-name>debug</param-name>
+            <param-value>true</param-value>
+        </init-param>
+        
+        <!-- 新加corssDomainSessionSecurity参数, for CSRF reason -->  
+		<init-param>     
+            <param-name>crossDomainSessionSecurity</param-name>     
+            <param-value>false</param-value>     
+		</init-param>  
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>dwr-invoker</servlet-name>
+        <!-- 拦截指定的URL -->
+        <url-pattern>/dwr/*</url-pattern>
+    </servlet-mapping>
+</web-app>

@@ -1,0 +1,10 @@
+
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 2.0//EN" "http://getahead.org/dwr/dwr20.dtd">
+
+<dwr>
+    <allow>
+        <create creator="new" javascript="Communicator">
+            <param name="class" value="com.dwr_190302.Communicator" />
+        </create>
+    </allow>
+</dwr>
